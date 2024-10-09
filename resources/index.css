@@ -37,6 +37,13 @@ button:hover {
     transition: .4s ease-in-out;
 }
 
+.dots {
+    background-color: black;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
 a {
     color: black;
 }
@@ -50,6 +57,7 @@ a:visited {
     left: 2rem;
     top:1rem;
     display: block;
+    z-index: -2;
 }
 
 #title2 {
@@ -57,6 +65,37 @@ a:visited {
     right: 2rem;
     top:1rem;
     display: block;
+    z-index: -2;
+    text-align: right;
+}
+
+#title3 {
+    position: absolute;
+    left: 30vw;
+    top:6rem;
+    text-align:right;
+    display: block;
+    z-index: -2;
+}
+
+#title4 {
+    position: absolute;
+    right: 30vw;
+    top:10rem;
+    display: block;
+    z-index: -2;
+    text-align: left;
+}
+
+.main-title {
+    font-family: "MatrisePro";
+    font-size: 5rem;
+    position: fixed;
+    bottom: 0; left: -1rem;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    z-index: -3;
 }
   
   #clouds{
@@ -184,5 +223,19 @@ a:visited {
 @media only screen and (max-width: 1000px), (orientation: portrait) {
     #title2, #title {
         top: 3rem;
+    }
+
+    #title3 {
+        right: 50%;
+    }
+
+    #title4 {
+        left: 50%;
+        width: auto;
+    }
+
+    .main-title {
+        font-size: 3rem;
+        z-index: -3;
     }
 }
