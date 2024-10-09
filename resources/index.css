@@ -228,6 +228,7 @@ a:visited {
     .main-title {
         font-size: 3rem;
         z-index: -3;
+        bottom:3rem;
     }
 
     #look .wrapper{
