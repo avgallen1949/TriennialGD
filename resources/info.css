@@ -72,12 +72,13 @@ html {
     top: 2rem;
   }
 
-  video {
+  .animation {
     position: relative;
     display: block;
     width: 100%;
     max-width: 20%;
     height: auto;
+    align-items: center;
     left: 40vw;
 }
 
@@ -113,7 +114,7 @@ html {
         font-size: 1rem;
       }
 
-      video {
+      .animation {
         max-width: 50%;
         left:25vw;
     }
