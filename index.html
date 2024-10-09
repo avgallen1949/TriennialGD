@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RISD GD Triennial 2024</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./resources/index.css" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="./resources/favicon.png">
+
+  </head>
+  <body>
+    <a href="./info.html"><p class="top">INFO</p></a>
+
+    <div class="bottom" id="filter">
+      <button filter="all">Show All</button>
+      <button filter="MFA">MFA</button>
+      <button filter="BFA">BFA</button>
+    </div>
+    
+    <!--  Dots are dumped here -->
+    <div id="clouds">
+    
+    </div>
+    
+    <!--  This appears when you click on a dot  -->
+    
+    <div id="look">
+      <div class="wrapper">
+        <div class="cloud">
+    <span class="emoji"></span>
+    <img class="images" src="" alt="Image" style="display: none;" /> 
+    <p></p>
+    <button hide>Back</button>
+        </div>
+        </div>
+    </div>
+
+    <div>
+        <p id="title">EXPIRATION DATE<br>GD TRIENNIAL 24</p>
+    </div>
+    <div>
+        <p id="title2">RISD GRAPHIC DESIGN</p>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="code.js" type="text/javascript"></script>
+  </body>
+
+  <script>
+
+// gets a random integer between the min and max
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+var SPREADSHEET_ID_AND_TAB = "1MAWVuSOz7OYJnAd5wulOzSO-QFRv5OQFwKlASLBrnI4/Sheet1";
+
+
+$(document).ready(function () {
+  
+  $.getJSON("https://opensheet.elk.sh/" + SPREADSHEET_ID_AND_TAB, function (data) {
+    
+    data.forEach(function (row, index) {
+      if(index == 0) return; // Skip the header row
+      
+      let div = $(`<div class='cloud' type='` + row.type +`' index="` + index +`">
+        <span class='emoji'>` + row.cloud +`</span>
+        <p>` +  row.msg + `</p>
+        </div>`)
+      .attr("title", row.msg)
+      .css("top", getRandomInt(0, 80) + "%")
+      .css("left", getRandomInt(0, 90) + "%")
+      .data('img', row.img) // Store the image link in the data attribute
+      .appendTo("#clouds");
+    });
+  });  
+});
+  
+
+// Filter
+
+$("#filter").on("click", "button[filter]", function(){
+  
+  $("#filter button[filter]").css("opacity", 0.3);
+  $(this).css("opacity", 1);
+  
+  let to_filter = $(this).attr("filter");
+  console.log(to_filter);
+  
+  if(to_filter == "all"){
+    $("#clouds .cloud").show();
+    return;
+  }
+  
+    $("#clouds .cloud").hide();
+    $("#clouds .cloud[type='" + to_filter +"']").show();
+});
+
+
+// Look at dots
+$("#clouds").on("click", ".cloud", function() {
+  
+  // Get information from the clicked dots
+  let index = $(this).attr("index");
+  let symbol = $(this).find(".emoji").text();
+  let msg = $(this).find("p").text();
+  let img = $(this).data('img'); // Get the image link from the data attribute
+
+  // Update the modal or display area with the information
+  $("#look .cloud .emoji").text(symbol);
+  $("#look .cloud p").text(msg);
+  $("#look .cloud .images").attr('src', img).show(); 
+
+  $("#look").show(); // Show the modal
+
+  // Mark dot as seen
+  $("#clouds .cloud[index='" + index + "']").attr("seen", "");
+});
+
+
+// hide when button is clicked
+$("#look").on("click", "button[hide]", function(){
+  $("#look").hide();
+});
+  </script>
+</html>
