@@ -71,25 +71,23 @@ a:visited {
 
 #title3 {
     position: absolute;
-    left: 30vw;
-    top:6rem;
-    text-align:right;
-    display: block;
+    top:8rem;
+    right: 60%;
+    text-align: right;
     z-index: -2;
 }
 
 #title4 {
     position: absolute;
-    right: 30vw;
-    top:10rem;
-    display: block;
+    top:14rem;
     z-index: -2;
+    left: 60%;
     text-align: left;
 }
 
 .main-title {
     font-family: "MatrisePro";
-    font-size: 5rem;
+    font-size: 6rem;
     position: fixed;
     bottom: 0; left: -1rem;
     width: 100%;
@@ -227,15 +225,23 @@ a:visited {
 
     #title3 {
         right: 50%;
+        text-align: right;
     }
 
     #title4 {
         left: 50%;
-        width: auto;
+        text-align: left;
     }
 
     .main-title {
         font-size: 3rem;
         z-index: -3;
     }
+
+    #look .cloud .images {
+        max-width: 80%; /* Ensure it doesn't overflow */
+        height: auto;    /* Maintain aspect ratio */
+        display: block;  /* Ensure it is block-level */
+        margin: 1em auto; /* Center it */
+      }
 }
