@@ -72,8 +72,13 @@ html {
     top: 2rem;
   }
 
-  .mobile-space {
-    display: none;
+  video {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 20%;
+    height: auto;
+    left: 40vw;
 }
 
     /* smartphone */
@@ -107,4 +112,9 @@ html {
         line-height: 1.3rem;
         font-size: 1rem;
       }
+
+      video {
+        max-width: 50%;
+        left:25vw;
+    }
 }

@@ -19,6 +19,7 @@ html {
     font-family: "Azeret Light";
     src: url('AzeretMono-Light.woff') format('woff');
   }
+  
 
 button:hover {
     background: black;
@@ -105,10 +106,13 @@ a:visited {
   }
 
   #look .cloud .images {
-    max-height: 50vh; /* Ensure it doesn't overflow */
-    height: auto;    /* Maintain aspect ratio */
-    display: block;  /* Ensure it is block-level */
-    margin: 1em auto; /* Center it */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    margin: auto;
+    align-items: center;
   }
   
   #clouds .cloud[seen]{
@@ -185,16 +189,16 @@ a:visited {
   }
   
   #look .wrapper{
-    
     position: absolute;
-    max-width: 90%;
-    width: 350px;
+    width: 50vw;
+    height: 80vh;
+    object-fit: fill;
+    object-position: top;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     margin: 0 auto;
     padding: 1em;
-    
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -223,21 +227,5 @@ a:visited {
     .main-title {
         font-size: 3rem;
         z-index: -3;
-        margin-bottom: 4.5rem;
     }
-
-    #look .cloud .images {
-        max-height: 50vh;    
-        display: block;  
-        margin: 1em auto; 
-      }
-}
-
-/*tablet*/
-@media only screen and (min-width: 1000px) and (max-width: 1400px) and (orientation: landscape) {
-    #look .cloud .images {
-        max-height: 50vh;
-        display: block;  
-        margin: 1em auto; 
-      }
 }
