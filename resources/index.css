@@ -1,0 +1,188 @@
+html {
+    font-family: "Azeret Light", monospace;
+    font-size: 14px;
+    color:black;
+    margin: 2rem;
+}
+
+@font-face {
+    font-family: "MatrisePro";
+    src: url('font.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: "Azeret Bold";
+    src: url('AzeretMono-SemiBold.ttf') format('woff');
+  }
+
+  @font-face {
+    font-family: "Azeret Light";
+    src: url('AzeretMono-Light.woff') format('woff');
+  }
+
+button {
+    color: black;
+    font-family: "MatrisePro", monospace;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 9rem;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: black;
+    color: white;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+#title {
+    position: absolute;
+    left: 2rem;
+    top:1rem;
+    display: block;
+}
+
+#title2 {
+    position: absolute;
+    right: 2rem;
+    top:1rem;
+    display: block;
+}
+  
+  #clouds{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;left: 0;
+    box-sizing: border-box;
+    z-index: -1;
+    color: black;
+  }
+  
+  
+  #clouds .cloud{
+    position: absolute;
+    text-align: center;
+    margin: .5rem;
+    cursor: pointer;
+  }
+
+  #look .cloud .images {
+    max-width: 100%; /* Ensure it doesn't overflow */
+    height: auto;    /* Maintain aspect ratio */
+    display: block;  /* Ensure it is block-level */
+    margin: 1em auto; /* Center it */
+  }
+  
+  #clouds .cloud[seen]{
+    opacity: 0.2;
+  }
+  
+  .cloud .emoji{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .cloud .emoji:hover{
+    color: rgba(0, 0, 0, 0.436);
+    transition: .4s ease-in-out;
+  }
+  
+  #clouds .cloud p {
+    display: none;
+    font-size: .6rem;
+    margin: 0;
+  }
+
+  
+  
+  
+  /* Filter the clouds */
+  
+  #filter{
+    position: fixed;
+    bottom: 0; left: -1rem;
+    width: 100%;
+    padding: 1rem;
+     text-align: center;
+  }
+  
+  #filter button{
+    border: 0;
+    padding: .5rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+
+  #filter button:hover {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.436);
+    transition: .4s ease-in-out;
+}
+
+.top {
+    position: fixed;
+    top: 0; left: 48vw;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: "MatrisePro", monospace;
+    cursor: pointer;
+}
+
+.top:hover {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.436);
+    transition: .4s ease-in-out;
+}
+  
+  
+  /* Look at a cloud */
+  
+  #look{
+    
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    background: white;
+    color: black;
+    display: none;
+  }
+  
+  #look .wrapper{
+    
+    position: absolute;
+    max-width: 90%;
+    width: 350px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    padding: 1em;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  #look .cloud{
+    text-align: center;
+  }
+
+  /* smartphone */
+@media only screen and (max-width: 1000px), (orientation: portrait) {
+    #title2, #title {
+        top: 3rem;
+    }
+}
