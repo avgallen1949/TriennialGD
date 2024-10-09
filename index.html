@@ -51,15 +51,9 @@
         <p id="title4">WOODS-GERRY<br>GALLERY</p>
     </div>
 
-    <!-- <div class="dots"></div>
-    <div class="dots"></div>
-    <div class="dots"></div>
-    <div class="dots"></div>
-    <div class="dots"></div>
-    <div class="dots"></div>
-     -->
 
-    
+
+<!-- this javascript was modified from a sheets site tutorial by chia amisola  -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="code.js" type="text/javascript"></script>
   </body>
@@ -146,51 +140,6 @@ $("#look").on("click", "button[hide]", function(){
 });
 
 
-const dots = document.getElementsByClassName("dots");
-const defaultSpeed = 4;
-let speed = defaultSpeed;
 
-function animateItems() {
-  items.forEach((item) => {
-    let directionX = Math.random() * 2 - 1;
-    let directionY = Math.random() * 2 - 1;
-    let left = window.innerWidth / 2 - item.clientWidth / 2;
-    let top = window.innerHeight / 2 - item.clientHeight / 2;
-
-    function moveItem() {
-      left += speed * directionX;
-      top += speed * directionY;
-
-      if (left < 0 || left + item.clientWidth > window.innerWidth) {
-        directionX *= -1;
-      }
-
-      if (top < 0 || top + item.clientHeight > window.innerHeight) {
-        directionY *= -1;
-      }
-
-      item.style.left = left + "px";
-      item.style.top = top + "px";
-
-      requestAnimationFrame(moveItem);
-    }
-
-    item.addEventListener("mouseenter", () => {
-      speed = 0;
-    });
-
-    item.addEventListener("mouseleave", () => {
-        speed = defaultSpeed;
-        directionX *= -1;
-        directionY *= -1;
-      }
-    );
-
-    moveItem();
-  });
-
-
-}
-animateItems();
   </script>
 </html>
