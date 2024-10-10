@@ -19,7 +19,16 @@ html {
     font-family: "Azeret Light";
     src: url('AzeretMono-Light.woff') format('woff');
   }
-  
+
+button {
+    color: black;
+    font-family: "MatrisePro", monospace;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 9rem;
+    padding: 1rem;
+    text-transform: uppercase;
+}
 
 button:hover {
     background: black;
@@ -106,14 +115,10 @@ a:visited {
   }
 
   #look .cloud .images {
-    width: 100%;
-    height: 50vh;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-    position: relative;
-    margin: auto;
-    align-items: center;
+    max-width: 100%; /* Ensure it doesn't overflow */
+    height: auto;    /* Maintain aspect ratio */
+    display: block;  /* Ensure it is block-level */
+    margin: 1em auto; /* Center it */
   }
   
   #clouds .cloud[seen]{
@@ -143,36 +148,39 @@ a:visited {
   
   #filter{
     position: fixed;
-    bottom: 1rem; left: -1rem;
+    bottom: 0; left: -1rem;
     width: 100%;
+    padding: 1rem;
      text-align: center;
   }
   
-  #filter button, button, .top{
-    cursor: pointer;
-    font-size: 1 rem;
-    color: black;
-    font-family: "MatrisePro", monospace;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 9rem;
+  #filter button{
+    border: 0;
     padding: .5rem;
-    text-transform: uppercase;
-    margin: .5rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
   }
 
-  #filter button:hover, .top:hover {
-    background-color: rgb(0, 0, 0);
-    color: white;
+  #filter button:hover {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.436);
     transition: .4s ease-in-out;
 }
 
 .top {
     position: fixed;
-    top: 0; left: 47vw;
+    top: 0; left: 48vw;
     text-align: center;
+    font-size: 1.5rem;
     font-family: "MatrisePro", monospace;
     cursor: pointer;
+}
+
+.top:hover {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.436);
+    transition: .4s ease-in-out;
 }
   
   
@@ -190,16 +198,16 @@ a:visited {
   }
   
   #look .wrapper{
+    
     position: absolute;
-    width: 50vw;
-    height: 80vh;
-    object-fit: fill;
-    object-position: top;
+    max-width: 90%;
+    width: 350px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     margin: 0 auto;
     padding: 1em;
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -228,14 +236,12 @@ a:visited {
     .main-title {
         font-size: 3rem;
         z-index: -3;
-        bottom:3rem;
     }
 
-    #look .wrapper{
-        width: 80vw;
-      }
-
-      .top {
-        left: 43vw;
+    #look .cloud .images {
+        max-width: 80%; /* Ensure it doesn't overflow */
+        height: auto;    /* Maintain aspect ratio */
+        display: block;  /* Ensure it is block-level */
+        margin: 1em auto; /* Center it */
       }
 }
