@@ -169,7 +169,7 @@ a:visited {
 
 .top {
     position: fixed;
-    top: 0; left: 43vw;
+    top: 0; left: 47vw;
     text-align: center;
     font-family: "MatrisePro", monospace;
     cursor: pointer;
@@ -233,5 +233,9 @@ a:visited {
 
     #look .wrapper{
         width: 80vw;
+      }
+
+      .top {
+        left: 43vw;
       }
 }
